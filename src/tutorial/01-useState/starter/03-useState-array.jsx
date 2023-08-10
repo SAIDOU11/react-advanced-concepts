@@ -4,11 +4,9 @@ import { data } from '../../../data.js';
 const UseStateArray = () => {
   const [people, setPeople] = useState(data);
   const removeItem = (id) => {
-    console.log(id);
-    const removeOneItem = people.filter((person) => person.id !== id);
-    setPeople(removeOneItem);
+    setPeople(people.filter((person) => person.id !== id));
   };
-  const clearAllItems = () => {
+  const ClearAllItems = () => {
     setPeople([]);
   };
   return (
@@ -17,19 +15,20 @@ const UseStateArray = () => {
         const { id, name } = person;
         return (
           <div key={id}>
-            <h4>{name}</h4>
-            <button onClick={() => removeItem(id)} type="button">
+            <h4>{name} </h4>
+            <button type="button" onClick={() => removeItem(id)}>
               Remove
             </button>
           </div>
         );
       })}
       <button
-        onClick={clearAllItems}
+        type="button"
+        onClick={ClearAllItems}
+        style={{ marginTop: '2.5em' }}
         className="btn"
-        style={{ marginTop: '2em' }}
       >
-        Clear Items
+        Click me
       </button>
     </div>
   );
@@ -42,6 +41,10 @@ export default UseStateArray;
  const removeItem = (id) => {
    console.log(id);
    setPeople(people.filter((person) => person.id !== id));
+  if the person.id [DOES NOT MATCH] !== id
+  RETURN A NEW ARRAY WITHOUT THE ID JUST DELETED
+
+   person.id === id will delete everything except that one !
  };
 
  */

@@ -1,16 +1,23 @@
+import { useState } from 'react';
+
 const ErrorExample = () => {
-  let count = 0;
-  const handleClickBtn = () => {
-    count = count + 1;
-    console.log(count);
+  const [count, setCount] = useState(0);
+
+  const handleClick = () => {
+    setCount(count + 1);
   };
   return (
-    <div>
-      <h2> {count}</h2>
-      <button type="button" onClick={handleClickBtn} className="btn">
-        Increase
+    <>
+      <h1>Error Example</h1>
+      <h2>{count}</h2>
+      <button
+        onClick={handleClick}
+        className="btn"
+        style={{ marginTop: '2em' }}
+      >
+        Click me
       </button>
-    </div>
+    </>
   );
 };
 
