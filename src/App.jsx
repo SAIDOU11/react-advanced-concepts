@@ -1,4 +1,4 @@
-import Starter from './tutorial/03-conditional-rendering/starter/01-multiple-returns-basics.jsx';
+import Starter from './tutorial/03-conditional-rendering/starter/05-short-circuit-examples.jsx';
 
 function App() {
   return (
