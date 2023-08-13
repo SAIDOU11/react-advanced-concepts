@@ -1,20 +1,21 @@
 import { useState } from 'react';
 
 const ShortCircuitOverview = () => {
-  // Falsy
+  // falsy
   const [text, setText] = useState('');
-  // Truthy
-  const [name, setName] = useState('Saidou');
 
-  const codeExample = text || 'Just Code  Example';
+  // truthy
+  const [name, setName] = useState('Susan');
+
+  const someValue = 'Some Value ';
 
   return (
     <div>
-      <h4>Falsy OR : {text || 'Hello World'} </h4>
-      <h4>Falsy AND : {text && 'Hello World'} </h4>
-      <h4>Truthy OR : {name || 'Hello World'} </h4>
-      <h4>Truthy AND : {name && 'Hello World'} </h4>
-      <p style={{ fontSize: '2rem', color: 'red' }}>{codeExample}</p>
+      <h3>{text || 'default value'} </h3>
+      <h3>{text && 'default value'} </h3>
+      <h3>{name || 'default value'} </h3>
+      <h3>{name && 'default value'} </h3>
+      <h4 style={{ color: 'red' }}>{someValue}</h4>
     </div>
   );
 };
