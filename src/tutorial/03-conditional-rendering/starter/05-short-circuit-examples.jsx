@@ -1,38 +1,32 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const ShortCircuitExamples = () => {
-  // falsy
   const [text, setText] = useState('');
-  // truthy
   const [name, setName] = useState('Susan');
   const [user, setUser] = useState({ name: 'John' });
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(true);
 
   return (
     <div>
       <h2>{text || 'default value'} </h2>
+      {user && <SomeComponent name={user.name} />}
       {text && (
         <div>
-          <h2>Wathever return</h2>
-          <h2>{name}</h2>
+          <h2 style={{ color: 'red' }}>{name} </h2>
         </div>
       )}
-      {/* {!text && (
+      {/* {!text || (
         <div>
-          <h2>Wathever return</h2>
-          <h2>{name}</h2>
+          <h2 style={{ color: 'red' }}>{name} </h2>
         </div>
       )} */}
-      {user && <SomeComponent name={user.name} />}
-      <h2 style={{ fontWeight: 'bold', color: '#cc6161', margin: '1em 0' }}>
-        Ternary Operator
-      </h2>
-      <button style={{ marginBottom: '1em' }} className="btn">
+      <h2 style={{ marginTop: '1.5em' }}>Ternary Operator : </h2>
+      <button style={{ marginBottom: '1.5em' }} className="btn" type="button">
         {isEditing ? 'edit' : 'add'}
       </button>
       {user ? (
         <div>
-          <h4>Hello there user {user.name} </h4>
+          <h4>Hello there, {user.name}</h4>
         </div>
       ) : (
         <div>
@@ -43,12 +37,10 @@ const ShortCircuitExamples = () => {
   );
 };
 
-// props ({name})
 const SomeComponent = ({ name }) => {
   return (
     <div>
-      <h2>Wathever return</h2>
-      <h2>{name}</h2>
+      <h2 style={{ color: 'red' }}>{name}</h2>
     </div>
   );
 };
